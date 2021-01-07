@@ -23,14 +23,12 @@ Example configuration using [Compojure](https://github.com/weavejester/compojure
 ```clojure
 (ns my.app
   (:require [compojure.core :refer [defroutes ANY]]
-            [compojure.route :as route]
             [clj-opa-service.client :refer [wrap-opa-authorize]]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]))
 
 (defroutes app-routes 
            (ANY "/public" [] "Public endpoint")
-           (ANY "/*" [] "Protected endpoint")
-           (route/not-found "Not Found"))
+           (ANY "/*" [] "Protected endpoint"))
 
 (def app (-> (wrap-defaults app-routes api-defaults)
              (wrap-opa-authorize)))
@@ -38,12 +36,25 @@ Example configuration using [Compojure](https://github.com/weavejester/compojure
 
 ##### Configuration
 
-The `wrap-opa-authorize` function takes a configuration map as an optional argument:
+The `wrap-opa-authorize` function takes a configuration map as an optional argument, offering the following options:
 
-```clojure
+| Option | Description | Default |
+|--------|-------------|---------|
+| `:server-addr` | Base URL of OPA server | http://localhost:8181 |
+| `:policy-path` | Path to policy document (excluding `/v1/data`) | /policy |
+| `:input-fn`    | Function taking request and returning the input map to provide OPA | See below |
+
+Unless a custom `:input-fn` is provided, an input map containing the path components (split on /), the request method 
+and - if found in the request authorization header - a bearer token to use for authN/authZ:
+
+```json
 {
- :server-addr "http://localhost:8181"
- :policy-path "/policy"
- :input-fn (fn [request] "...")
+  "path": ["public", "assets", "images"],
+  "method": "GET",
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmRlcnNla25lcnQifQ.odt_88oGgYHoYU2SRdMjLYA0aG-NXDyeYqj_x9voAa4"
 }
 ```
+**Note** that the input map should _not_ contain the `input` attribute itself - that is added by the middleware.
+
+If you would like to change or extend the default input map with custom attributes, you may do so by calling the 
+`opa.middleware/default-input-fn` and change the result to your liking.
