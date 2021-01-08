@@ -78,12 +78,14 @@ If you would like to change or extend the default input map with custom attribut
 Example, custom configuration:
 
 ```clojure
-(def app (-> (wrap-defaults app-routes api-defaults)
-             (wrap-opa-authorize {:server-addr "https://opa.example.com"
-                                  :policy-path "/authz/policy/rules"
-                                  :input-fn (fn [request] {:username (get-in request [:headers :x-username])})
-                                  :enforce-fn (fn [opa-response] {:status 401 :body opa-response})})))
+(def app 
+  (-> (wrap-defaults app-routes api-defaults)
+      ; Query the OPA server at `https://opa.example.com` for authorization decisions on the 
+      ; `/authz/policy/rules` path with input built from a custom request header `"X-Username"`
+      ; and with and enforcement function that returns a 401 Unauthorized response on failures 
+      ; and forwards the response body from OPA to the caller.
+      (wrap-opa-authorize {:server-addr "https://opa.example.com"
+                           :policy-path "/authz/policy/rules"
+                           :input-fn (fn [request] {:username (get-in request [:headers :x-username])})
+                           :enforce-fn (fn [opa-response] {:status 401 :body opa-response})})))
 ```
-Above configuration sets up the middleware to query the OPA at `https://opa.example.com` for authorization decisions on
-the `/authz/policy/rules` path with input built from a custom request header `"X-Username"` and with and enforcement 
-function that returns a 401 Unauthorized response on failures and forwards the response body from OPA to the caller.
