@@ -1,19 +1,16 @@
-name: Build
+name: Deploy
 
 on:
-  pull_request:
-    branches:
-    - main
   push:
     branches:
     - main
 
 jobs:
-  build:
-    name: Build
+  deploy:
+    name: Deploy
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Run tests
-      run: lein midje
+    - name: Deploy
+      run: lein deploy clojars

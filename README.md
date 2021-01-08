@@ -1,5 +1,7 @@
 # clj-opa
 
+[![Clojars Project](https://img.shields.io/clojars/v/clj-opa.svg)](https://clojars.org/clj-opa)
+
 Ring middleware for app authorization using [Open Policy Agent](https://www.openpolicyagent.org/) (OPA). 
 
 ## Install
@@ -7,7 +9,7 @@ Ring middleware for app authorization using [Open Policy Agent](https://www.open
 To install, add the following to your project `:dependencies`
 
 ```
-[clj-opa/opa "0.1.0"]
+[clj-opa "0.1.0"]
 ```
 
 ## Usage
@@ -19,6 +21,8 @@ The wrap-opa-authorize middleware will intercept incoming requests and delegate 
 By default, the `wrap-opa-authorize` middleware expects a response containing an `allow` rule equal to `true`.
 
 Example configuration using [Compojure](https://github.com/weavejester/compojure) for routing:
+
+TODO: fix imports below
 
 ```clojure
 (ns my.app
