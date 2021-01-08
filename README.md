@@ -16,7 +16,7 @@ To install, add the following to your project `:dependencies`
 
 #### wrap-opa-authorize
 
-The `wrap-opa-authorize` middleware will intercept any incoming request and delegate THE authorization decision to OPA.
+The `wrap-opa-authorize` middleware will intercept any incoming request and delegate the authorization decision to OPA.
 By default, the `wrap-opa-authorize` middleware expects a response containing an `allow` attribute equal to `true` or 
 else the `:enforce-fn` will be called, which in the default configuration serves a **403 Forbidden** to the caller.
 
