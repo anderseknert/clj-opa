@@ -11,7 +11,9 @@
 (.addShutdownHook (Runtime/getRuntime) (Thread. #(conn-mgr/shutdown-manager cm)))
 
 (defn data-query
-  "Query the OPA server's data API for decisions"
+  "Query the OPA server's data API for decisions
+
+  See https://www.openpolicyagent.org/docs/latest/rest-api/#data-api"
   [options input]
   (let [url (str (:server-addr options) "/v1/data" (:policy-path options))
         request {:accept :json
