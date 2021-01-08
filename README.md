@@ -89,3 +89,7 @@ Example, custom configuration:
                            :input-fn (fn [request] {:username (get-in request [:headers :x-username])})
                            :enforce-fn (fn [opa-response] {:status 401 :body opa-response})})))
 ```
+
+#### Other utilities and helper functions
+
+See the [API reference](https://cljdoc.org/d/clj-opa/clj-opa/0.1.0/doc/readme).
