@@ -11,4 +11,5 @@
   {:dev {:dependencies [[clj-http-fake "1.0.3"]
                         [ring/ring-mock "0.4.0"]
                         [compojure "1.6.2"]
-                        [midje "1.9.9"]]}})
+                        [midje "1.9.9"]
+                        [lein-midje "3.2.2"]]}})
