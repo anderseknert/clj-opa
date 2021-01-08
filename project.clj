@@ -1,4 +1,4 @@
-(defproject clj-opa "0.1.0"
+(defproject clj-opa "0.2.0-SNAPSHOT"
   :description "Clojure utilities and Ring middleware for app authorization using Open Policy Agent (OPA)"
   :url "https://github.com/anderseknert/clj-opa"
   :license {:name "Apache License 2.0"
@@ -9,7 +9,9 @@
                  [cheshire "5.10.0"]]
   :deploy-repositories [["clojars" {:url "https://repo.clojars.org"
                                     :username :env/clojars_username
-                                    :password :env/clojars_password}]]
+                                    :password :env/clojars_password
+                                    ; TODO: fix at some point
+                                    :sign-releases false}]]
   :profiles {:dev {:dependencies [[clj-http-fake "1.0.3"]
                                   [ring/ring-mock "0.4.0"]
                                   [compojure "1.6.2"]
