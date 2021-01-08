@@ -46,10 +46,8 @@
         (if (= 200 (:status response))
           (if (true? (get-in body [:result :allow]))
             (handler request)
-            {:status 403 :body "403 Forbidden"})
+            ; TODO Injectable responses
+            {:status 403 :body "403 Forbidden" :headers {"Content-Type" "text/html; charset=utf-8"}})
           (do
             (println response)
-            {:status 500 :body "500 Internal Server Error"})))))))
-
-
-
+            {:status 500 :body "500 Internal Server Error" :headers {"Content-Type" "text/html; charset=utf-8"}})))))))
