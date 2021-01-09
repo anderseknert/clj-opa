@@ -1,6 +1,5 @@
 (ns opa.client
-  (:require [clojure.string :refer [blank? split starts-with? lower-case upper-case trim]]
-            [clj-http.client :as client]
+  (:require [clj-http.client :as client]
             [clj-http.conn-mgr :as conn-mgr])
   (:import (java.io IOException)))
 
