@@ -23,8 +23,9 @@
       (assoc input :token token)
       input)))
 
-(defn default-enforce-fn [opa-response-body]
+(defn default-enforce-fn
   "Default function to call for enforcement, i.e. when a request is unauthorized"
+  [opa-response-body]
   (println (str "Unauthorized: " opa-response-body))
   {:status 403 :body "403 Forbidden" :headers {"Content-Type" "text/html; charset=utf-8"}})
 
