@@ -17,3 +17,8 @@ jobs:
       uses: actions/checkout@v2
     - name: Run tests
       run: lein midje
+    - name: Run clj-kondo linter
+      uses: DeLaGuardo/clojure-lint-action@master
+      with:
+        clj-kondo-args: --lint src
+        github_token: ${{ secrets.GITHUB_TOKEN }}
