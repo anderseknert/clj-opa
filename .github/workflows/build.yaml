@@ -23,7 +23,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
     - name: Run tests
-      run: lein midje
+      run: lein test
     - name: Run clj-kondo linter
       uses: DeLaGuardo/clojure-lint-action@master
       with:

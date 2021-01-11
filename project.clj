@@ -12,10 +12,7 @@
                                     :password :env/clojars_password
                                     ; TODO: fix at some point
                                     :sign-releases false}]]
-  :profiles {:dev {:dependencies [[clj-http-fake "1.0.3"]
-                                  [ring/ring-mock "0.4.0"]
-                                  [compojure "1.6.2"]
-                                  [midje "1.9.9"]]
-                   :plugins [[lein-midje "3.2.2"]
-                             [lein-ancient "0.6.15"]]}})
+  :profiles {:dev {:dependencies [[ring/ring-mock "0.4.0"]
+                                  [compojure "1.6.2"]]
+                   :plugins [[lein-ancient "0.6.15"]]}})
 
