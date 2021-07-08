@@ -5,7 +5,7 @@
             :url "https://www.apache.org/licenses/LICENSE-2.0.html"}
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.10.3"]
-                 [clj-http "3.12.1"]
+                 [clj-http "3.12.3"]
                  [cheshire "5.10.0"]]
   :deploy-repositories [["clojars" {:url "https://repo.clojars.org"
                                     :username :env/clojars_username
