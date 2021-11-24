@@ -25,7 +25,5 @@ jobs:
     - name: Run tests
       run: lein test
     - name: Run clj-kondo linter
-      uses: DeLaGuardo/clojure-lint-action@master
-      with:
-        clj-kondo-args: --lint src
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      run: lein clj-kondo --lint src
+
