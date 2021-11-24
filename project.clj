@@ -1,4 +1,4 @@
-(defproject clj-opa "0.1.1"
+(defproject clj-opa "0.2.0-SNAPSHOT"
   :description "Clojure utilities and Ring middleware for app authorization using Open Policy Agent (OPA)"
   :url "https://github.com/anderseknert/clj-opa"
   :license {:name "Apache License 2.0"
