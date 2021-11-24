@@ -9,7 +9,7 @@ Ring middleware for app authorization using [Open Policy Agent](https://www.open
 To install, add the following to your project `:dependencies`
 
 ```
-[clj-opa "0.1.0"]
+[clj-opa "0.1.1"]
 ```
 
 ## Usage
