@@ -25,7 +25,7 @@
 
 (defn default-enforce-fn
   "Default function to call for enforcement, i.e. when a request is unauthorized"
-  [opa-response-body]
+  [_]                                                        ; opa-response-body
   {:status 403 :body "403 Forbidden" :headers {"Content-Type" "text/html; charset=utf-8"}})
 
 (def default-options {:server-addr "http://localhost:8181"

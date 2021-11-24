@@ -14,5 +14,5 @@
                                     :sign-releases false}]]
   :profiles {:dev {:dependencies [[ring/ring-mock "0.4.0"]
                                   [compojure "1.6.2"]]
-                   :plugins [[lein-ancient "0.6.15"]]}})
-
+                   :plugins [[lein-ancient "0.6.15"]
+                             [com.github.clj-kondo/lein-clj-kondo "v0.1.2"]]}})
