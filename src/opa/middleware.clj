@@ -19,9 +19,7 @@
   (let [input {:path (filter (complement str/blank?) (str/split (:uri request) #"/"))
                :method (str/upper-case (name (:request-method request)))}
         token (bearer-token request)]
-    (if (some? token)
-      (assoc input :token token)
-      input)))
+    (cond-> input (some? token) (assoc :token token))))
 
 (defn default-enforce-fn
   "Default function to call for enforcement, i.e. when a request is unauthorized"
