@@ -41,7 +41,7 @@
   :server-addr - address of server (default http://localhost:8181)
   :policy-path - path to authorization policy document (excluding /v1/data)
   :input-fn    - function that takes the request and returns the input map to provide OPA
-  :enforce-fn  - function called on authorization failure - provided OPA response as single argument "
+  :enforce-fn  - function called on authorization failure - provided OPA response as single argument"
   ([handler]
    (wrap-opa-authorize handler default-options))
   ([handler options]
