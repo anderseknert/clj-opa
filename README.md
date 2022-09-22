@@ -41,7 +41,7 @@ Example Rego policy that allows `GET` requests on the `/public` endpoint:
 ```rego
 package policy
 
-default allow = false
+default allow := false
 
 allow {
     input.method == "GET"
